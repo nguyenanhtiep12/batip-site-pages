@@ -1,1 +1,0 @@
-# batip-site-pages
