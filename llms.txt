@@ -1,0 +1,31 @@
+# BaTip
+
+> Official website for BaTip's focused utility apps, with product pages, task guides, and support and privacy links.
+
+BaTip builds focused apps for learning, practice, and everyday utility.
+
+## Apps
+
+- [Hi Morse](https://batip.app/en/apps/hi-morse/): Morse code trainer with text-to-Morse conversion, decoder, audio playback, code table, listening practice, keyer, and flash.
+- [Hi Morse Morse code converter and decoder](https://batip.app/en/apps/hi-morse/morse-code-converter/): browser tool for converting text to International Morse code and decoding written dot-and-dash patterns back to text.
+- [Hi Eye](https://batip.app/en/apps/hi-eye/): Eye break reminder for screen work with a work-and-rest timer, guided breaks, browser reminders, and local progress.
+- [Hi Eye eye break reminder guide](https://batip.app/en/apps/hi-eye/eye-break-reminder/)
+- [Hi Eye tired eyes guide](https://batip.app/en/apps/hi-eye/reduce-tired-eyes/)
+- [Hi Eye work and rest timer guide](https://batip.app/en/apps/hi-eye/work-rest-timer/)
+- [Hi Memo](https://batip.app/en/apps/hi-memo/): Local-first notes app with optional Google Drive sync and Firebase Crashlytics diagnostics on Android and iOS.
+
+## Support
+
+- [Hi Morse support](https://batip.app/en/support/hi-morse/)
+- [Hi Eye support](https://batip.app/en/support/hi-eye/)
+- [Hi Memo support](https://batip.app/en/support/hi-memo/)
+
+## Legal
+
+- [Hi Morse privacy policy](https://batip.app/en/legal/hi-morse/privacy/)
+- [Hi Eye privacy policy](https://batip.app/en/legal/hi-eye/privacy/)
+- [Hi Memo privacy policy](https://batip.app/en/legal/hi-memo/privacy/)
+- [Website privacy policy](https://batip.app/en/legal/website/privacy/)
+- [Website cookie policy](https://batip.app/en/legal/website/cookies/)
+
+Last updated: 2026-09-10

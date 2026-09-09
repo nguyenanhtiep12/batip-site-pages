@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Morse Code Converter &amp; Decoder | Hi Morse | BaTip</title>
+    <meta name="description" content="Convert text to International Morse code or decode dots and dashes back to text in your browser, then continue with audio and practice in Hi Morse.">
+    <meta name="robots" content="noindex,follow">
+    <meta name="theme-color" content="#07130f">
+    <link rel="canonical" href="https://batip.app/en/apps/hi-morse/morse-code-converter/">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script>
+      const detectLocales = [
+  "en"
+];
+      const localeAliases = {
+  "en-au": "en",
+  "en-gb": "en",
+  "en-us": "en",
+  "es-419": "es-MX",
+  "zh-cn": "zh-Hans",
+  "zh-sg": "zh-Hans",
+  "zh-hans": "zh-Hans",
+  "zh-hans-cn": "zh-Hans",
+  "zh-tw": "zh-Hant",
+  "zh-hk": "zh-Hant",
+  "zh-mo": "zh-Hant",
+  "zh-hant": "zh-Hant",
+  "zh-hant-tw": "zh-Hant",
+  "zh-hant-hk": "zh-Hant"
+};
+      const localeBaseAliases = {
+  "es": "es-MX",
+  "pt": "pt-BR",
+  "zh": "zh-Hans"
+};
+      const fallbackLocale = 'en';
+      const byLowercase = new Map(detectLocales.map((tag) => [tag.toLowerCase(), tag]));
+      const normalize = (tag) => String(tag || '').replace(/_/g, '-');
+      const availableLocale = (candidate) => byLowercase.get(String(candidate || '').toLowerCase()) || null;
+      const bestMatch = (languages) => {
+        for (const language of languages) {
+          const normalized = normalize(language);
+          const lower = normalized.toLowerCase();
+          if (byLowercase.has(lower)) return byLowercase.get(lower);
+          const aliasMatch = availableLocale(localeAliases[lower]);
+          if (aliasMatch) return aliasMatch;
+          const chineseScriptMatch = lower.startsWith('zh-') && lower.includes('hant')
+            ? availableLocale('zh-Hant')
+            : lower.startsWith('zh-') && lower.includes('hans')
+              ? availableLocale('zh-Hans')
+              : null;
+          if (chineseScriptMatch) return chineseScriptMatch;
+          const base = lower.split('-')[0];
+          if (byLowercase.has(base)) return byLowercase.get(base);
+          const baseAliasMatch = availableLocale(localeBaseAliases[base]);
+          if (baseAliasMatch) return baseAliasMatch;
+        }
+        return fallbackLocale;
+      };
+      const savedExpiry = localStorage.getItem('batip.locale.expiresAt');
+      const saved = !savedExpiry || Date.parse(savedExpiry) > Date.now()
+        ? localStorage.getItem('batip.locale')
+        : null;
+      if (!saved && savedExpiry) {
+        localStorage.removeItem('batip.locale');
+        localStorage.removeItem('batip.locale.expiresAt');
+      }
+      const target = bestMatch(saved ? [saved] : navigator.languages || [navigator.language]);
+      location.replace('/' + target + '/apps/hi-morse/morse-code-converter/');
+    </script>
+  </head>
+  <body>
+    <main class="fallback-page">
+      <h1>Morse Code Converter and Decoder</h1>
+      <p><a href="/en/apps/hi-morse/morse-code-converter/">English</a></p>
+    </main>
+  </body>
+</html>

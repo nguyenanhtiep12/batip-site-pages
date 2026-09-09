@@ -1,0 +1,27 @@
+{
+  "app": "Hi Morse",
+  "platform": "macos",
+  "version": "0.1.7",
+  "build": "16",
+  "gitSha": "75d23f35573232f83805b5bfb80efacb0ca44a62",
+  "shortSha": "75d23f3",
+  "publishedAt": "2026-05-28T14:30:30Z",
+  "downloads": {
+    "dmg": {
+      "url": "https://batip.app/downloads/hi-morse/macos/latest.dmg",
+      "versionedUrl": "https://batip.app/downloads/hi-morse/macos/Hi-Morse-0.1.7-16-75d23f3.dmg",
+      "fileName": "Hi-Morse-0.1.7-16-75d23f3.dmg",
+      "downloadFileName": "Hi-Morse-0.1.7-16.dmg",
+      "sha256": "371af8c52cb72192771bacddbda6bdee1cd87a3129fd40705ac4036cb9f5615e",
+      "size": 26300718
+    },
+    "zip": {
+      "url": "https://batip.app/downloads/hi-morse/macos/latest.zip",
+      "versionedUrl": "https://batip.app/downloads/hi-morse/macos/Hi-Morse-0.1.7-16-75d23f3.zip",
+      "fileName": "Hi-Morse-0.1.7-16-75d23f3.zip",
+      "downloadFileName": "Hi-Morse-0.1.7-16.zip",
+      "sha256": "b674cd369c572f2be486de48f5e08ffeec49e2cc734ba828d6700b5b696537ac",
+      "size": 22918195
+    }
+  }
+}
