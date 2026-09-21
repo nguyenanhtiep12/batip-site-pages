@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hi Memo Support | BaTip</title>
+    <meta name="description" content="Hi Memo support page with language detection.">
+    <meta name="robots" content="noindex,follow">
+    <meta name="theme-color" content="#07130f">
+    <link rel="canonical" href="https://batip.app/en/support/hi-memo/">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script>
+      const detectLocales = [
+  "ar",
+  "bg",
+  "ca",
+  "cs",
+  "da",
+  "de",
+  "el",
+  "en",
+  "en-AU",
+  "en-GB",
+  "en-US",
+  "es",
+  "es-419",
+  "es-ES",
+  "es-MX",
+  "fi",
+  "fr",
+  "fr-CA",
+  "fr-FR",
+  "he",
+  "hi",
+  "gu-IN",
+  "ml-IN",
+  "mr-IN",
+  "pa-IN",
+  "te-IN",
+  "ur-PK",
+  "hr",
+  "hu",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "ms",
+  "nl",
+  "no",
+  "pl",
+  "pt",
+  "pt-BR",
+  "pt-PT",
+  "ro",
+  "ru",
+  "sk",
+  "sr",
+  "sv",
+  "th",
+  "tr",
+  "uk",
+  "vi",
+  "zh",
+  "zh-Hans",
+  "zh-Hant",
+  "zh-Hant-HK"
+];
+      const localeAliases = {
+  "en-au": "en",
+  "en-gb": "en",
+  "en-us": "en",
+  "es-419": "es-MX",
+  "zh-cn": "zh-Hans",
+  "zh-sg": "zh-Hans",
+  "zh-hans": "zh-Hans",
+  "zh-hans-cn": "zh-Hans",
+  "zh-tw": "zh-Hant",
+  "zh-hk": "zh-Hant",
+  "zh-mo": "zh-Hant",
+  "zh-hant": "zh-Hant",
+  "zh-hant-tw": "zh-Hant",
+  "zh-hant-hk": "zh-Hant"
+};
+      const localeBaseAliases = {
+  "es": "es-MX",
+  "pt": "pt-BR",
+  "zh": "zh-Hans"
+};
+      const fallbackLocale = 'en';
+      const byLowercase = new Map(detectLocales.map((tag) => [tag.toLowerCase(), tag]));
+      const normalize = (tag) => String(tag || '').replace(/_/g, '-');
+      const availableLocale = (candidate) => byLowercase.get(String(candidate || '').toLowerCase()) || null;
+      const bestMatch = (languages) => {
+        for (const language of languages) {
+          const normalized = normalize(language);
+          const lower = normalized.toLowerCase();
+          if (byLowercase.has(lower)) return byLowercase.get(lower);
+          const aliasMatch = availableLocale(localeAliases[lower]);
+          if (aliasMatch) return aliasMatch;
+          const chineseScriptMatch = lower.startsWith('zh-') && lower.includes('hant')
+            ? availableLocale('zh-Hant')
+            : lower.startsWith('zh-') && lower.includes('hans')
+              ? availableLocale('zh-Hans')
+              : null;
+          if (chineseScriptMatch) return chineseScriptMatch;
+          const base = lower.split('-')[0];
+          if (byLowercase.has(base)) return byLowercase.get(base);
+          const baseAliasMatch = availableLocale(localeBaseAliases[base]);
+          if (baseAliasMatch) return baseAliasMatch;
+        }
+        return fallbackLocale;
+      };
+      const savedExpiry = localStorage.getItem('batip.locale.expiresAt');
+      const saved = !savedExpiry || Date.parse(savedExpiry) > Date.now()
+        ? localStorage.getItem('batip.locale')
+        : null;
+      if (!saved && savedExpiry) {
+        localStorage.removeItem('batip.locale');
+        localStorage.removeItem('batip.locale.expiresAt');
+      }
+      const target = bestMatch(saved ? [saved] : navigator.languages || [navigator.language]);
+      location.replace('/' + target + '/support/hi-memo/');
+    </script>
+  </head>
+  <body>
+    <main class="fallback-page">
+      <h1>Hi Memo Support</h1>
+      <p><a href="/ar/support/hi-memo/">العربية</a></p>
+      <p><a href="/bg/support/hi-memo/">Български</a></p>
+      <p><a href="/ca/support/hi-memo/">Català</a></p>
+      <p><a href="/cs/support/hi-memo/">Čeština</a></p>
+      <p><a href="/da/support/hi-memo/">Dansk</a></p>
+      <p><a href="/de/support/hi-memo/">Deutsch</a></p>
+      <p><a href="/el/support/hi-memo/">Ελληνικά</a></p>
+      <p><a href="/en/support/hi-memo/">English</a></p>
+      <p><a href="/en-AU/support/hi-memo/">English (Australia)</a></p>
+      <p><a href="/en-GB/support/hi-memo/">English (UK)</a></p>
+      <p><a href="/en-US/support/hi-memo/">English (US)</a></p>
+      <p><a href="/es/support/hi-memo/">Español</a></p>
+      <p><a href="/es-419/support/hi-memo/">Español (Latinoamérica)</a></p>
+      <p><a href="/es-ES/support/hi-memo/">Español (España)</a></p>
+      <p><a href="/es-MX/support/hi-memo/">Español (México)</a></p>
+      <p><a href="/fi/support/hi-memo/">Suomi</a></p>
+      <p><a href="/fr/support/hi-memo/">Français</a></p>
+      <p><a href="/fr-CA/support/hi-memo/">Français (Canada)</a></p>
+      <p><a href="/fr-FR/support/hi-memo/">Français (France)</a></p>
+      <p><a href="/he/support/hi-memo/">עברית</a></p>
+      <p><a href="/hi/support/hi-memo/">हिन्दी</a></p>
+      <p><a href="/gu-IN/support/hi-memo/">ગુજરાતી (India)</a></p>
+      <p><a href="/ml-IN/support/hi-memo/">മലയാളം (India)</a></p>
+      <p><a href="/mr-IN/support/hi-memo/">मराठी (India)</a></p>
+      <p><a href="/pa-IN/support/hi-memo/">ਪੰਜਾਬੀ (India)</a></p>
+      <p><a href="/te-IN/support/hi-memo/">తెలుగు (India)</a></p>
+      <p><a href="/ur-PK/support/hi-memo/">اردو (Pakistan)</a></p>
+      <p><a href="/hr/support/hi-memo/">Hrvatski</a></p>
+      <p><a href="/hu/support/hi-memo/">Magyar</a></p>
+      <p><a href="/id/support/hi-memo/">Bahasa Indonesia</a></p>
+      <p><a href="/it/support/hi-memo/">Italiano</a></p>
+      <p><a href="/ja/support/hi-memo/">日本語</a></p>
+      <p><a href="/ko/support/hi-memo/">한국어</a></p>
+      <p><a href="/ms/support/hi-memo/">Bahasa Melayu</a></p>
+      <p><a href="/nl/support/hi-memo/">Nederlands</a></p>
+      <p><a href="/no/support/hi-memo/">Norsk</a></p>
+      <p><a href="/pl/support/hi-memo/">Polski</a></p>
+      <p><a href="/pt/support/hi-memo/">Português</a></p>
+      <p><a href="/pt-BR/support/hi-memo/">Português (Brasil)</a></p>
+      <p><a href="/pt-PT/support/hi-memo/">Português (Portugal)</a></p>
+      <p><a href="/ro/support/hi-memo/">Română</a></p>
+      <p><a href="/ru/support/hi-memo/">Русский</a></p>
+      <p><a href="/sk/support/hi-memo/">Slovenčina</a></p>
+      <p><a href="/sr/support/hi-memo/">Српски</a></p>
+      <p><a href="/sv/support/hi-memo/">Svenska</a></p>
+      <p><a href="/th/support/hi-memo/">ไทย</a></p>
+      <p><a href="/tr/support/hi-memo/">Türkçe</a></p>
+      <p><a href="/uk/support/hi-memo/">Українська</a></p>
+      <p><a href="/vi/support/hi-memo/">Tiếng Việt</a></p>
+      <p><a href="/zh/support/hi-memo/">中文</a></p>
+      <p><a href="/zh-Hans/support/hi-memo/">简体中文</a></p>
+      <p><a href="/zh-Hant/support/hi-memo/">繁體中文</a></p>
+      <p><a href="/zh-Hant-HK/support/hi-memo/">繁體中文 (香港)</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cookie Policy | BaTip</title>
+    <meta name="description" content="BaTip website cookie policy page with language detection.">
+    <meta name="robots" content="noindex,follow">
+    <meta name="theme-color" content="#07130f">
+    <link rel="canonical" href="https://batip.app/en/legal/website/cookies/">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script>
+      const detectLocales = [
+  "ar",
+  "bg",
+  "ca",
+  "cs",
+  "da",
+  "de",
+  "el",
+  "en",
+  "en-AU",
+  "en-GB",
+  "en-US",
+  "es",
+  "es-419",
+  "es-ES",
+  "es-MX",
+  "fi",
+  "fr",
+  "fr-CA",
+  "fr-FR",
+  "he",
+  "hi",
+  "gu-IN",
+  "ml-IN",
+  "mr-IN",
+  "pa-IN",
+  "te-IN",
+  "ur-PK",
+  "hr",
+  "hu",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "ms",
+  "nl",
+  "no",
+  "pl",
+  "pt",
+  "pt-BR",
+  "pt-PT",
+  "ro",
+  "ru",
+  "sk",
+  "sr",
+  "sv",
+  "th",
+  "tr",
+  "uk",
+  "vi",
+  "zh",
+  "zh-Hans",
+  "zh-Hant",
+  "zh-Hant-HK"
+];
+      const localeAliases = {
+  "en-au": "en",
+  "en-gb": "en",
+  "en-us": "en",
+  "es-419": "es-MX",
+  "zh-cn": "zh-Hans",
+  "zh-sg": "zh-Hans",
+  "zh-hans": "zh-Hans",
+  "zh-hans-cn": "zh-Hans",
+  "zh-tw": "zh-Hant",
+  "zh-hk": "zh-Hant",
+  "zh-mo": "zh-Hant",
+  "zh-hant": "zh-Hant",
+  "zh-hant-tw": "zh-Hant",
+  "zh-hant-hk": "zh-Hant"
+};
+      const localeBaseAliases = {
+  "es": "es-MX",
+  "pt": "pt-BR",
+  "zh": "zh-Hans"
+};
+      const fallbackLocale = 'en';
+      const byLowercase = new Map(detectLocales.map((tag) => [tag.toLowerCase(), tag]));
+      const normalize = (tag) => String(tag || '').replace(/_/g, '-');
+      const availableLocale = (candidate) => byLowercase.get(String(candidate || '').toLowerCase()) || null;
+      const bestMatch = (languages) => {
+        for (const language of languages) {
+          const normalized = normalize(language);
+          const lower = normalized.toLowerCase();
+          if (byLowercase.has(lower)) return byLowercase.get(lower);
+          const aliasMatch = availableLocale(localeAliases[lower]);
+          if (aliasMatch) return aliasMatch;
+          const chineseScriptMatch = lower.startsWith('zh-') && lower.includes('hant')
+            ? availableLocale('zh-Hant')
+            : lower.startsWith('zh-') && lower.includes('hans')
+              ? availableLocale('zh-Hans')
+              : null;
+          if (chineseScriptMatch) return chineseScriptMatch;
+          const base = lower.split('-')[0];
+          if (byLowercase.has(base)) return byLowercase.get(base);
+          const baseAliasMatch = availableLocale(localeBaseAliases[base]);
+          if (baseAliasMatch) return baseAliasMatch;
+        }
+        return fallbackLocale;
+      };
+      const savedExpiry = localStorage.getItem('batip.locale.expiresAt');
+      const saved = !savedExpiry || Date.parse(savedExpiry) > Date.now()
+        ? localStorage.getItem('batip.locale')
+        : null;
+      if (!saved && savedExpiry) {
+        localStorage.removeItem('batip.locale');
+        localStorage.removeItem('batip.locale.expiresAt');
+      }
+      const target = bestMatch(saved ? [saved] : navigator.languages || [navigator.language]);
+      location.replace('/' + target + '/legal/website/cookies/');
+    </script>
+  </head>
+  <body>
+    <main class="fallback-page">
+      <h1>Cookie Policy</h1>
+      <p><a href="/ar/legal/website/cookies/">العربية</a></p>
+      <p><a href="/bg/legal/website/cookies/">Български</a></p>
+      <p><a href="/ca/legal/website/cookies/">Català</a></p>
+      <p><a href="/cs/legal/website/cookies/">Čeština</a></p>
+      <p><a href="/da/legal/website/cookies/">Dansk</a></p>
+      <p><a href="/de/legal/website/cookies/">Deutsch</a></p>
+      <p><a href="/el/legal/website/cookies/">Ελληνικά</a></p>
+      <p><a href="/en/legal/website/cookies/">English</a></p>
+      <p><a href="/en-AU/legal/website/cookies/">English (Australia)</a></p>
+      <p><a href="/en-GB/legal/website/cookies/">English (UK)</a></p>
+      <p><a href="/en-US/legal/website/cookies/">English (US)</a></p>
+      <p><a href="/es/legal/website/cookies/">Español</a></p>
+      <p><a href="/es-419/legal/website/cookies/">Español (Latinoamérica)</a></p>
+      <p><a href="/es-ES/legal/website/cookies/">Español (España)</a></p>
+      <p><a href="/es-MX/legal/website/cookies/">Español (México)</a></p>
+      <p><a href="/fi/legal/website/cookies/">Suomi</a></p>
+      <p><a href="/fr/legal/website/cookies/">Français</a></p>
+      <p><a href="/fr-CA/legal/website/cookies/">Français (Canada)</a></p>
+      <p><a href="/fr-FR/legal/website/cookies/">Français (France)</a></p>
+      <p><a href="/he/legal/website/cookies/">עברית</a></p>
+      <p><a href="/hi/legal/website/cookies/">हिन्दी</a></p>
+      <p><a href="/gu-IN/legal/website/cookies/">ગુજરાતી (India)</a></p>
+      <p><a href="/ml-IN/legal/website/cookies/">മലയാളം (India)</a></p>
+      <p><a href="/mr-IN/legal/website/cookies/">मराठी (India)</a></p>
+      <p><a href="/pa-IN/legal/website/cookies/">ਪੰਜਾਬੀ (India)</a></p>
+      <p><a href="/te-IN/legal/website/cookies/">తెలుగు (India)</a></p>
+      <p><a href="/ur-PK/legal/website/cookies/">اردو (Pakistan)</a></p>
+      <p><a href="/hr/legal/website/cookies/">Hrvatski</a></p>
+      <p><a href="/hu/legal/website/cookies/">Magyar</a></p>
+      <p><a href="/id/legal/website/cookies/">Bahasa Indonesia</a></p>
+      <p><a href="/it/legal/website/cookies/">Italiano</a></p>
+      <p><a href="/ja/legal/website/cookies/">日本語</a></p>
+      <p><a href="/ko/legal/website/cookies/">한국어</a></p>
+      <p><a href="/ms/legal/website/cookies/">Bahasa Melayu</a></p>
+      <p><a href="/nl/legal/website/cookies/">Nederlands</a></p>
+      <p><a href="/no/legal/website/cookies/">Norsk</a></p>
+      <p><a href="/pl/legal/website/cookies/">Polski</a></p>
+      <p><a href="/pt/legal/website/cookies/">Português</a></p>
+      <p><a href="/pt-BR/legal/website/cookies/">Português (Brasil)</a></p>
+      <p><a href="/pt-PT/legal/website/cookies/">Português (Portugal)</a></p>
+      <p><a href="/ro/legal/website/cookies/">Română</a></p>
+      <p><a href="/ru/legal/website/cookies/">Русский</a></p>
+      <p><a href="/sk/legal/website/cookies/">Slovenčina</a></p>
+      <p><a href="/sr/legal/website/cookies/">Српски</a></p>
+      <p><a href="/sv/legal/website/cookies/">Svenska</a></p>
+      <p><a href="/th/legal/website/cookies/">ไทย</a></p>
+      <p><a href="/tr/legal/website/cookies/">Türkçe</a></p>
+      <p><a href="/uk/legal/website/cookies/">Українська</a></p>
+      <p><a href="/vi/legal/website/cookies/">Tiếng Việt</a></p>
+      <p><a href="/zh/legal/website/cookies/">中文</a></p>
+      <p><a href="/zh-Hans/legal/website/cookies/">简体中文</a></p>
+      <p><a href="/zh-Hant/legal/website/cookies/">繁體中文</a></p>
+      <p><a href="/zh-Hant-HK/legal/website/cookies/">繁體中文 (香港)</a></p>
+    </main>
+  </body>
+</html>
