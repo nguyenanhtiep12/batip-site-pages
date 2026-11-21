@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found | BaTip</title>
+    <meta name="description" content="The requested BaTip page could not be found.">
+    <meta name="theme-color" content="#07130f">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script>
+      const pathParts = location.pathname.split('/').filter(Boolean);
+      const detectLocales = [
+  "ar",
+  "bg",
+  "ca",
+  "cs",
+  "da",
+  "de",
+  "el",
+  "en",
+  "en-AU",
+  "en-GB",
+  "en-US",
+  "es",
+  "es-419",
+  "es-ES",
+  "es-MX",
+  "fi",
+  "fr",
+  "fr-CA",
+  "fr-FR",
+  "he",
+  "hi",
+  "gu-IN",
+  "ml-IN",
+  "mr-IN",
+  "pa-IN",
+  "te-IN",
+  "ur-PK",
+  "hr",
+  "hu",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "ms",
+  "nl",
+  "no",
+  "pl",
+  "pt",
+  "pt-BR",
+  "pt-PT",
+  "ro",
+  "ru",
+  "sk",
+  "sr",
+  "sv",
+  "th",
+  "tr",
+  "uk",
+  "vi",
+  "zh",
+  "zh-Hans",
+  "zh-Hant",
+  "zh-Hant-HK"
+];
+      const byLowercase = new Map(detectLocales.map((tag) => [tag.toLowerCase(), tag]));
+      const locale = byLowercase.get(String(pathParts[0] || '').toLowerCase()) || 'en';
+      document.documentElement.lang = locale;
+      document.addEventListener('DOMContentLoaded', () => {
+        const homeLink = document.querySelector('[data-home-link]');
+        if (homeLink) homeLink.href = '/' + locale + '/';
+      });
+    </script>
+  </head>
+  <body>
+    <main class="fallback-page">
+      <p class="eyebrow">404</p>
+      <h1>Page not found</h1>
+      <p><a class="button" href="/en/" data-home-link>Go to BaTip</a></p>
+    </main>
+  </body>
+</html>

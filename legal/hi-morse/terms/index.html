@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hi Morse Terms of Use | BaTip</title>
+    <meta name="description" content="Terms of Use for Hi Morse.">
+    <meta name="robots" content="noindex,follow">
+    <meta name="theme-color" content="#07130f">
+    <link rel="canonical" href="https://batip.app/en-US/legal/hi-morse/terms/">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/assets/styles.css">
+    <script>
+      const detectLocales = [
+  "ar",
+  "bg",
+  "ca",
+  "cs",
+  "da",
+  "de",
+  "el",
+  "en",
+  "en-AU",
+  "en-GB",
+  "en-US",
+  "es",
+  "es-419",
+  "es-ES",
+  "es-MX",
+  "fi",
+  "fr",
+  "fr-CA",
+  "fr-FR",
+  "he",
+  "hi",
+  "gu-IN",
+  "ml-IN",
+  "mr-IN",
+  "pa-IN",
+  "te-IN",
+  "ur-PK",
+  "hr",
+  "hu",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "ms",
+  "nl",
+  "no",
+  "pl",
+  "pt",
+  "pt-BR",
+  "pt-PT",
+  "ro",
+  "ru",
+  "sk",
+  "sr",
+  "sv",
+  "th",
+  "tr",
+  "uk",
+  "vi",
+  "zh",
+  "zh-Hans",
+  "zh-Hant",
+  "zh-Hant-HK"
+];
+      const localeAliases = {
+  "en-au": "en",
+  "en-gb": "en",
+  "en-us": "en",
+  "es-419": "es-MX",
+  "zh-cn": "zh-Hans",
+  "zh-sg": "zh-Hans",
+  "zh-hans": "zh-Hans",
+  "zh-hans-cn": "zh-Hans",
+  "zh-tw": "zh-Hant",
+  "zh-hk": "zh-Hant",
+  "zh-mo": "zh-Hant",
+  "zh-hant": "zh-Hant",
+  "zh-hant-tw": "zh-Hant",
+  "zh-hant-hk": "zh-Hant"
+};
+      const localeBaseAliases = {
+  "es": "es-MX",
+  "pt": "pt-BR",
+  "zh": "zh-Hans"
+};
+      const fallbackLocale = 'en-US';
+      const byLowercase = new Map(detectLocales.map((tag) => [tag.toLowerCase(), tag]));
+      const normalize = (tag) => String(tag || '').replace(/_/g, '-');
+      const availableLocale = (candidate) => byLowercase.get(String(candidate || '').toLowerCase()) || null;
+      const bestMatch = (languages) => {
+        for (const language of languages) {
+          const normalized = normalize(language);
+          const lower = normalized.toLowerCase();
+          if (byLowercase.has(lower)) return byLowercase.get(lower);
+          const aliasMatch = availableLocale(localeAliases[lower]);
+          if (aliasMatch) return aliasMatch;
+          const chineseScriptMatch = lower.startsWith('zh-') && lower.includes('hant')
+            ? availableLocale('zh-Hant')
+            : lower.startsWith('zh-') && lower.includes('hans')
+              ? availableLocale('zh-Hans')
+              : null;
+          if (chineseScriptMatch) return chineseScriptMatch;
+          const base = lower.split('-')[0];
+          if (byLowercase.has(base)) return byLowercase.get(base);
+          const baseAliasMatch = availableLocale(localeBaseAliases[base]);
+          if (baseAliasMatch) return baseAliasMatch;
+        }
+        return fallbackLocale;
+      };
+      const savedExpiry = localStorage.getItem('batip.locale.expiresAt');
+      const saved = !savedExpiry || Date.parse(savedExpiry) > Date.now()
+        ? localStorage.getItem('batip.locale')
+        : null;
+      if (!saved && savedExpiry) {
+        localStorage.removeItem('batip.locale');
+        localStorage.removeItem('batip.locale.expiresAt');
+      }
+      const target = bestMatch(saved ? [saved] : navigator.languages || [navigator.language]);
+      location.replace('/' + target + '/legal/hi-morse/terms/');
+    </script>
+  </head>
+  <body>
+    <main class="fallback-page">
+      <h1>Hi Morse Terms of Use</h1>
+      <p><a href="/ar/legal/hi-morse/terms/">العربية</a></p>
+      <p><a href="/bg/legal/hi-morse/terms/">Български</a></p>
+      <p><a href="/ca/legal/hi-morse/terms/">Català</a></p>
+      <p><a href="/cs/legal/hi-morse/terms/">Čeština</a></p>
+      <p><a href="/da/legal/hi-morse/terms/">Dansk</a></p>
+      <p><a href="/de/legal/hi-morse/terms/">Deutsch</a></p>
+      <p><a href="/el/legal/hi-morse/terms/">Ελληνικά</a></p>
+      <p><a href="/en/legal/hi-morse/terms/">English</a></p>
+      <p><a href="/en-AU/legal/hi-morse/terms/">English (Australia)</a></p>
+      <p><a href="/en-GB/legal/hi-morse/terms/">English (UK)</a></p>
+      <p><a href="/en-US/legal/hi-morse/terms/">English (US)</a></p>
+      <p><a href="/es/legal/hi-morse/terms/">Español</a></p>
+      <p><a href="/es-419/legal/hi-morse/terms/">Español (Latinoamérica)</a></p>
+      <p><a href="/es-ES/legal/hi-morse/terms/">Español (España)</a></p>
+      <p><a href="/es-MX/legal/hi-morse/terms/">Español (México)</a></p>
+      <p><a href="/fi/legal/hi-morse/terms/">Suomi</a></p>
+      <p><a href="/fr/legal/hi-morse/terms/">Français</a></p>
+      <p><a href="/fr-CA/legal/hi-morse/terms/">Français (Canada)</a></p>
+      <p><a href="/fr-FR/legal/hi-morse/terms/">Français (France)</a></p>
+      <p><a href="/he/legal/hi-morse/terms/">עברית</a></p>
+      <p><a href="/hi/legal/hi-morse/terms/">हिन्दी</a></p>
+      <p><a href="/gu-IN/legal/hi-morse/terms/">ગુજરાતી (India)</a></p>
+      <p><a href="/ml-IN/legal/hi-morse/terms/">മലയാളം (India)</a></p>
+      <p><a href="/mr-IN/legal/hi-morse/terms/">मराठी (India)</a></p>
+      <p><a href="/pa-IN/legal/hi-morse/terms/">ਪੰਜਾਬੀ (India)</a></p>
+      <p><a href="/te-IN/legal/hi-morse/terms/">తెలుగు (India)</a></p>
+      <p><a href="/ur-PK/legal/hi-morse/terms/">اردو (Pakistan)</a></p>
+      <p><a href="/hr/legal/hi-morse/terms/">Hrvatski</a></p>
+      <p><a href="/hu/legal/hi-morse/terms/">Magyar</a></p>
+      <p><a href="/id/legal/hi-morse/terms/">Bahasa Indonesia</a></p>
+      <p><a href="/it/legal/hi-morse/terms/">Italiano</a></p>
+      <p><a href="/ja/legal/hi-morse/terms/">日本語</a></p>
+      <p><a href="/ko/legal/hi-morse/terms/">한국어</a></p>
+      <p><a href="/ms/legal/hi-morse/terms/">Bahasa Melayu</a></p>
+      <p><a href="/nl/legal/hi-morse/terms/">Nederlands</a></p>
+      <p><a href="/no/legal/hi-morse/terms/">Norsk</a></p>
+      <p><a href="/pl/legal/hi-morse/terms/">Polski</a></p>
+      <p><a href="/pt/legal/hi-morse/terms/">Português</a></p>
+      <p><a href="/pt-BR/legal/hi-morse/terms/">Português (Brasil)</a></p>
+      <p><a href="/pt-PT/legal/hi-morse/terms/">Português (Portugal)</a></p>
+      <p><a href="/ro/legal/hi-morse/terms/">Română</a></p>
+      <p><a href="/ru/legal/hi-morse/terms/">Русский</a></p>
+      <p><a href="/sk/legal/hi-morse/terms/">Slovenčina</a></p>
+      <p><a href="/sr/legal/hi-morse/terms/">Српски</a></p>
+      <p><a href="/sv/legal/hi-morse/terms/">Svenska</a></p>
+      <p><a href="/th/legal/hi-morse/terms/">ไทย</a></p>
+      <p><a href="/tr/legal/hi-morse/terms/">Türkçe</a></p>
+      <p><a href="/uk/legal/hi-morse/terms/">Українська</a></p>
+      <p><a href="/vi/legal/hi-morse/terms/">Tiếng Việt</a></p>
+      <p><a href="/zh/legal/hi-morse/terms/">中文</a></p>
+      <p><a href="/zh-Hans/legal/hi-morse/terms/">简体中文</a></p>
+      <p><a href="/zh-Hant/legal/hi-morse/terms/">繁體中文</a></p>
+      <p><a href="/zh-Hant-HK/legal/hi-morse/terms/">繁體中文 (香港)</a></p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#141613">
+    <meta name="description" content="Thu âm từ tab Chrome và lưu bản thu ngay trên máy.">
+    <meta name="robots" content="noindex,follow">
+    <meta name="referrer" content="no-referrer">
+    <title>Thu âm từ link · BaTip</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./styles.css?v=3">
+    <script type="module" src="./app.js?v=3"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-content">
+        <div class="wordmark" aria-label="BaTip Audio">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span>BaTip<span class="wordmark-audio"> Audio</span></span>
+        </div>
+        <span class="platform">Chrome máy tính</span>
+      </div>
+    </header>
+
+    <main class="shell">
+      <div class="intro">
+        <h1>Thu âm từ link<span>.</span></h1>
+        <p>Dán link, bấm Bắt đầu thu và chia sẻ âm thanh của tab nguồn.</p>
+      </div>
+
+      <div class="workspace">
+        <form class="setup" id="source-form" aria-label="Thiết lập bản thu" novalidate>
+          <div>
+            <label for="source-url">Link cần thu</label>
+            <input id="source-url" name="source" type="text" inputmode="url" autocomplete="off"
+                   spellcheck="false" placeholder="https://…" required aria-describedby="source-error">
+            <p id="source-error" class="error field-error" role="alert" hidden></p>
+          </div>
+
+          <fieldset id="format-fieldset">
+            <legend>Định dạng bản thu</legend>
+            <div id="format-options" class="format-options"></div>
+            <p id="format-note" class="format-note"></p>
+          </fieldset>
+
+          <div class="record-actions">
+            <button id="start" class="button button-primary" type="submit" disabled>
+              <span class="record-icon" aria-hidden="true"></span><span id="start-label">Bắt đầu thu</span>
+            </button>
+            <p id="instructions" class="instructions" role="status"></p>
+            <a id="open-source" class="source-link" target="_blank" rel="noopener noreferrer" hidden>Mở tab nguồn</a>
+          </div>
+        </form>
+
+        <section id="recording" class="studio" aria-labelledby="recording-title" data-state="idle">
+          <div class="studio-header">
+            <h2 id="recording-title">Bản thu</h2>
+            <p class="status" role="status"><span class="status-dot" aria-hidden="true"></span><span id="status">Sẵn sàng</span></p>
+          </div>
+
+          <div class="meter">
+            <div class="meter-label"><span id="meter-title">Tiến độ bản thu</span><span id="output-format">WAV</span></div>
+            <p id="recording-name" class="recording-name" hidden></p>
+            <div class="clock" aria-label="Thời lượng bản thu"><span id="elapsed">00:00</span><span id="duration" hidden></span></div>
+            <progress id="progress" value="0" max="1" aria-label="Tiến độ bản thu"></progress>
+            <p id="signal-label" class="signal-label"></p>
+          </div>
+
+          <div class="studio-actions">
+            <p id="capture-error" class="error" role="alert" hidden></p>
+            <button id="play-source" class="button button-primary" type="button" hidden>Phát nguồn</button>
+            <button id="stop" class="button button-stop" type="button" hidden>Dừng và lưu</button>
+            <audio id="source-player" preload="none" hidden></audio>
+            <div id="result" class="result" hidden>
+              <audio id="playback" controls preload="metadata" aria-label="Nghe bản thu"></audio>
+              <a id="save" class="button button-primary" download rel="noreferrer">Lưu bản thu</a>
+              <p id="file-details" class="file-details"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footer">Bản thu ở trên máy bạn. Mỗi lượt thu tối đa 30 phút.</footer>
+    </main>
+    <noscript><div class="shell noscript">Bật JavaScript trong Chrome để thu âm.</div></noscript>
+  </body>
+</html>
